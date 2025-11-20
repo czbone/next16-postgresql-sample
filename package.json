@@ -1,0 +1,42 @@
+{
+  "name": "next16-postgresql-sample",
+  "version": "0.1.0",
+  "description": "Next.js 16 + PostgreSQL sample project using Prisma ORM",
+  "license": "MIT",
+  "repository": "https://github.com/czbone/next16-postgresql-sample",
+  "author": "Naoki Hirata (https://github.com/czbone/)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:generate": "prisma generate",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.0.0",
+    "@prisma/client": "^7.0.0",
+    "dotenv": "^17.2.3",
+    "next": "16.0.3",
+    "pg": "^8.16.3",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^24",
+    "@types/pg": "^8.15.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.3",
+    "prisma": "^7.0.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.20.6",
+    "typescript": "^5"
+  }
+}
