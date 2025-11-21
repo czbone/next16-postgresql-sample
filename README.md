@@ -76,17 +76,14 @@ DATABASE_URL="postgresql://postgres:postgres@localhost:5432/prisma_sample?schema
 ### 4. Prismaクライアントを生成
 
 ```bash
-pnpm prisma generate
+pnpm db:generate
 ```
 
 ### 5. データベースをセットアップ
 
 ```bash
-# マイグレーションを適用せずにスキーマを同期（開発時）
-pnpm prisma db push
-
-# または、マイグレーションを作成（本番環境推奨）
-pnpm prisma migrate dev --name init
+# マイグレーションを作成・適用
+pnpm db:migrate
 ```
 
 ### 6. サンプルデータを投入（オプション）
@@ -276,12 +273,11 @@ pnpm lint             # ESLintでコードチェック
 ### Prisma
 
 ```bash
-pnpm prisma studio           # Prisma Studio（GUIデータベースブラウザ）を起動
-pnpm prisma generate         # Prismaクライアントを生成
-pnpm prisma db push          # スキーマをデータベースに同期
-pnpm prisma migrate dev      # マイグレーションを作成・適用
-pnpm prisma migrate deploy   # マイグレーションを本番環境に適用
-pnpm db:seed                 # サンプルデータを投入
+pnpm db:studio          # Prisma Studio(GUIデータベースブラウザ)を起動
+pnpm db:generate        # Prismaクライアントを生成
+pnpm db:migrate         # マイグレーションを作成・適用
+pnpm db:reset           # データベースをリセット
+pnpm db:seed            # サンプルデータを投入
 ```
 
 ## 🎨 技術的な特徴
@@ -306,15 +302,6 @@ pnpm db:seed                 # サンプルデータを投入
 - レスポンシブデザイン
 - ダークモード対応
 - インタラクティブなUI
-
-## 🚀 デプロイ
-
-### Vercel へのデプロイ
-
-1. Vercelアカウントを作成
-2. GitHubリポジトリと連携
-3. 環境変数 `DATABASE_URL` を設定
-4. デプロイ
 
 ## 📚 参考リンク
 
