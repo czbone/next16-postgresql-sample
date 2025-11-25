@@ -15,7 +15,7 @@ export async function GET() {
   } catch (error) {
     console.error('Failed to fetch posts:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch posts' },
+      { error: '投稿の取得に失敗しました' },
       { status: 500 }
     );
   }
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
 
     if (!title || !authorId) {
       return NextResponse.json(
-        { error: 'Title and authorId are required' },
+        { error: 'タイトルと著者IDは必須です' },
         { status: 400 }
       );
     }
@@ -49,7 +49,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Failed to create post:', error);
     return NextResponse.json(
-      { error: 'Failed to create post' },
+      { error: '投稿の作成に失敗しました' },
       { status: 500 }
     );
   }

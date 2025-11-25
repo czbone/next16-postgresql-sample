@@ -47,7 +47,8 @@ export function PostForm() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create post');
+        const errorData = await response.json();
+        throw new Error(errorData.error || '投稿の作成に失敗しました');
       }
 
       setTitle('');
@@ -56,7 +57,7 @@ export function PostForm() {
       setPublished(false);
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : 'エラーが発生しました');
     } finally {
       setIsLoading(false);
     }

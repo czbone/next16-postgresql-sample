@@ -15,14 +15,14 @@ export async function GET(
     });
 
     if (!user) {
-      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+      return NextResponse.json({ error: 'ユーザーが見つかりません' }, { status: 404 });
     }
 
     return NextResponse.json(user);
   } catch (error) {
     console.error('Failed to fetch user:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch user' },
+      { error: 'ユーザーの取得に失敗しました' },
       { status: 500 }
     );
   }
@@ -49,7 +49,7 @@ export async function PATCH(
   } catch (error) {
     console.error('Failed to update user:', error);
     return NextResponse.json(
-      { error: 'Failed to update user' },
+      { error: 'ユーザーの更新に失敗しました' },
       { status: 500 }
     );
   }
@@ -65,11 +65,11 @@ export async function DELETE(
       where: { id: parseInt(id) },
     });
 
-    return NextResponse.json({ message: 'User deleted successfully' });
+    return NextResponse.json({ message: 'ユーザーを削除しました' });
   } catch (error) {
     console.error('Failed to delete user:', error);
     return NextResponse.json(
-      { error: 'Failed to delete user' },
+      { error: 'ユーザーの削除に失敗しました' },
       { status: 500 }
     );
   }

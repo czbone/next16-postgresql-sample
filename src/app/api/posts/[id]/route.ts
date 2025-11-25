@@ -15,14 +15,14 @@ export async function GET(
     });
 
     if (!post) {
-      return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+      return NextResponse.json({ error: '投稿が見つかりません' }, { status: 404 });
     }
 
     return NextResponse.json(post);
   } catch (error) {
     console.error('Failed to fetch post:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch post' },
+      { error: '投稿の取得に失敗しました' },
       { status: 500 }
     );
   }
@@ -53,7 +53,7 @@ export async function PATCH(
   } catch (error) {
     console.error('Failed to update post:', error);
     return NextResponse.json(
-      { error: 'Failed to update post' },
+      { error: '投稿の更新に失敗しました' },
       { status: 500 }
     );
   }
@@ -69,11 +69,11 @@ export async function DELETE(
       where: { id: parseInt(id) },
     });
 
-    return NextResponse.json({ message: 'Post deleted successfully' });
+    return NextResponse.json({ message: '投稿を削除しました' });
   } catch (error) {
     console.error('Failed to delete post:', error);
     return NextResponse.json(
-      { error: 'Failed to delete post' },
+      { error: '投稿の削除に失敗しました' },
       { status: 500 }
     );
   }

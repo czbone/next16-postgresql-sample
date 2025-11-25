@@ -15,7 +15,7 @@ export async function GET() {
   } catch (error) {
     console.error('Failed to fetch users:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch users' },
+      { error: 'ユーザーの取得に失敗しました' },
       { status: 500 }
     );
   }
@@ -28,8 +28,20 @@ export async function POST(request: Request) {
 
     if (!email) {
       return NextResponse.json(
-        { error: 'Email is required' },
+        { error: 'メールアドレスは必須です' },
         { status: 400 }
+      );
+    }
+
+    // 既存ユーザーチェック
+    const existingUser = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (existingUser) {
+      return NextResponse.json(
+        { error: 'このメールアドレスは既に使用されています' },
+        { status: 409 }
       );
     }
 
@@ -41,10 +53,19 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(user, { status: 201 });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to create user:', error);
+    
+    // Prismaの一意性制約違反エラー
+    if (error.code === 'P2002') {
+      return NextResponse.json(
+        { error: 'このメールアドレスは既に使用されています' },
+        { status: 409 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to create user' },
+      { error: 'ユーザーの作成に失敗しました' },
       { status: 500 }
     );
   }
