@@ -11,6 +11,10 @@ Next.js 16、Prisma、PostgreSQLを使用したフルスタックWebアプリケ
 - **REST API**: Next.js App RouterによるAPIエンドポイント
 - **レスポンシブUI**: Tailwind CSSによるモダンなデザイン
 
+## 📸 画面イメージ
+
+![アプリケーション画面](https://github.com/user-attachments/assets/859f4633-6b41-4104-b839-634ca613afa8)
+
 ## 🚀 技術スタック
 
 - **Next.js 16** - React App Router、Server Components
@@ -133,10 +137,6 @@ F5キーまたは「実行とデバッグ」から以下の構成を選択でき
 - ✅ レスポンシブデザイン(モバイル対応)
 - ✅ ダークモード対応
 - ✅ 型安全なAPI通信
-
-## 📸 画面イメージ
-
-![アプリケーション画面](https://github.com/user-attachments/assets/859f4633-6b41-4104-b839-634ca613afa8)
 
 ## 🔌 API エンドポイント
 
